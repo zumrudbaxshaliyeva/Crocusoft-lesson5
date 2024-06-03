@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        width: 350px;
+    }
+    table, td {
+        border: 1px solid;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+          <td>5</td>
+          <td>8</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>15</td>
+          <td>85</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>38</td>
+            <td>21</td>
+          </tr>
+      </table>
+</body>
+<script>
+    const rows=document.getElementsByTagName("td");
+    const nums=[];
+
+    for (row of rows){
+        nums.push(parseInt(row.textContent));
+    }
+    let minVal=nums[0];
+    let maxVal=nums[0];
+
+    nums.forEach(num => {
+        if(num < minVal) minVal = num;
+        if(num > maxVal) maxVal = num;
+    });
+
+    for(row of rows){
+        if(parseInt(row.textContent) === minVal){
+            row.style.backgroundColor="red";
+            row.style.color="white";
+        }
+        if(parseInt(row.textContent) === maxVal){
+            row.style.backgroundColor="green";
+            row.style.color="white";
+        }
+    }
+
+    
+</script>
+</html>

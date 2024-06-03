@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #box{
+        width: 150px;
+        height: 150px;
+        background-color: coral;
+    }
+</style>
+<body>
+    <div id="box" style="margin-left:0"></div>
+</body>
+<script>
+    let index=0;
+    const element=document.getElementById("box");   
+
+    setInterval(() => {
+        if(index<20){
+            index+=2;
+            let marginLeft =parseInt(element.style.marginLeft);
+            element.style.marginLeft = marginLeft + 20 + 'px';
+        }
+    }, 2000);
+
+</script>
+</html>   

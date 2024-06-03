@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        width: 350px;
+    }
+    table, td {
+        border: 1px solid;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+          <td>5</td>
+          <td>8</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>15</td>
+          <td>85</td>
+        </tr>
+        <tr>
+            <td>25</td>
+            <td>38</td>
+            <td>21</td>
+          </tr>
+      </table>
+</body>
+<script>
+    const rows = document.getElementsByTagName("td");
+    for (const row of rows) {
+        const value=parseInt(row.textContent);
+        if(value%2 === 0){
+            row.style.color="blue"
+        }else{
+            row.style.color="red"
+        }
+    }
+
+</script>
+</html>

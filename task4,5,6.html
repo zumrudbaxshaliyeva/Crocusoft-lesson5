@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        position: relative;
+        height: 100vh;
+    }
+
+    .box{
+        width: 150px;
+        height: 150px;
+        background-color: chocolate;
+        position: absolute;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    let index=0;
+    const element=document.getElementsByClassName("box")[0];
+
+    document.addEventListener("DOMContentLoaded", function() {
+        index=localStorage.getItem("index");
+        const keyCode=localStorage.getItem("keyCode");
+        if(index || keyCode){
+            moveBox(index, keyCode)
+        }
+    });
+
+    function moveBox(index, keypress){
+        if(index%4 === 0 || keypress === 38){
+            element.style.bottom="auto";
+            element.style.top=0;
+            element.style.left=0;
+            element.style.right="auto";
+        }else if(index%4 === 1 || keypress === 39){
+            element.style.bottom="auto";
+            element.style.top=0;
+            element.style.left="auto";
+            element.style.right=0;
+        }
+        else if(index%4 === 2 || keypress === 40){
+            element.style.bottom=0;
+            element.style.top="auto";
+            element.style.left="auto";
+            element.style.right=0;
+        }
+        else if(index%4 === 3 || keypress === 37){
+            index=0;
+            element.style.bottom=0;
+            element.style.top="auto";
+            element.style.left=0;
+            element.style.right="auto";
+        }
+    }
+    element.addEventListener("click", () => {
+        index++;
+        moveBox(index, '');
+        localStorage.setItem("index", index);
+        localStorage.setItem("keyCode", '');
+    });
+    document.addEventListener("keydown", (event) => {
+        if(event.keyCode === 37){
+            index=7;
+        }else if(event.keyCode === 38){
+            index=4;
+        }else if(event.keyCode === 39){
+            index=5;
+        }else if(event.keyCode===40){
+            index=6;
+        }
+        moveBox(index, event.keyCode);
+        localStorage.setItem("index", index);
+        localStorage.setItem("keyCode", event.keyCode);
+    });
+
+</script>
+</html>

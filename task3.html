@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+    }
+    .box{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+    .button-wrapper{
+        margin-top: 50px;
+    }
+    .start{
+        background-color: #04AA6D;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display:block;
+        font-size: 16px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        cursor: pointer;
+    }
+    .stop{
+        background-color: red;
+        border: none;
+        color: white;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .text{
+        font-weight: bold;
+        margin-left: 10px;
+        display: inline-block;
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <div class="box"></div>
+        <div class="button-wrapper">
+            <button class="start">Start</button>
+            <button class="stop">Stop </button><span class="text"></span>                           
+        </div>
+    </div>
+
+</body>
+<script>
+    const element=document.getElementsByClassName("box")[0];
+    const start=document.getElementsByClassName("start")[0];
+    const stopButton=document.getElementsByClassName("stop")[0];
+    let period=1;
+    let time=0;
+
+    let rotateBox;
+    let stopInterval;
+    function restart(){
+        clearInterval(stopInterval);
+        stopButton.nextElementSibling.textContent='';
+        time=0;
+    }
+
+    start.addEventListener("click", ()=> {
+        restart();
+        setTimeout(() => {
+            rotateBox = setInterval(() => {
+                        element.style.transform = `rotate(${45*period}deg)`;
+                        period++;
+                    }, 2000);
+        }, 1000)
+    });
+
+    stopButton.addEventListener("click", ()=> {       
+        
+        stopInterval = setInterval(()=>{
+            ++time;
+            time <=3 ? stopButton.nextElementSibling.textContent=time : clearInterval(rotateBox);
+        }, 1000);
+    });
+
+</script>
+</html>

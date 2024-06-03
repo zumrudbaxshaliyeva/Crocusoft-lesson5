@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul{list-style-type: none;}
+</style>
+<body>
+    <ul>
+        <li>first item</li>
+        <li>second item</li>
+        <li>third item</li>
+        <li>fourth item</li>
+        <li>fifth item</li>
+        <li>sixth item</li>
+        <li>seventh item</li>
+    </ul>
+</body>
+<script>
+    const list = document.getElementsByTagName("ul")[0].getElementsByTagName("li");
+    let index=0;
+    for(let element of list){
+        index++;
+        element.innerText = index + '. ' + element.innerText;
+    }
+</script>
+</html>

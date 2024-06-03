@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .box{
+        margin-top: 25px;
+        width: 10px;
+        height: 10px;
+        background-color: cornflowerblue;
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <input type="number" name="number"/>
+        <div class="box"></div>
+    </div>
+</body>
+<script>
+    const input=document.getElementsByName("number")[0];
+    const box=document.getElementsByClassName("box")[0];
+
+    input.addEventListener("focusout", (event)=>{
+        let width=box.offsetWidth;
+        let height=box.offsetHeight;
+        box.style.width = parseInt(width) + parseInt(event.target.value) +'px';
+        box.style.height = parseInt(height) + parseInt(event.target.value) +'px';
+    })
+</script>
+</html>
