@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#line{
+    width: 500px;
+    height: 0;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+#animal{
+    width: 100px;
+    height: 100px;
+    background-image: url('https://images.pexels.com/photos/47547/squirrel-animal-cute-rodents-47547.jpeg?cs=srgb&dl=pexels-pixabay-47547.jpg&fm=jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+

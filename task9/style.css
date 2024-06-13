@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 50px;
+}
+
+#box{
+    width: 10px;
+    height: 10px;
+    background-color: yellow;
+    transition: width 0.5s height 0.5s;
+}
+
+#input{
+    width: 200px;
+    height: 35px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
